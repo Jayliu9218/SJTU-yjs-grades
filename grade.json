@@ -1,0 +1,64 @@
+{
+    "datas": {
+      "xscjcx": {
+        "totalSize": 12,
+        "pageSize": 999,
+        "rows": [
+          {
+            "KSXZDM_DISPLAY": "首修",
+            "BY6": null,
+            "BY5": null,
+            "CJFZDM": "1",
+            "BY4": null,
+            "ZTDM": 99,
+            "BY3": null,
+            "WID": "00f41b60154943fbb55bc04e8bfb62d0",
+            "BY2": null,
+            "BXHJKCWID": null,
+            "TSZTDM_DISPLAY": "",
+            "BY1": null,
+            "XH": "",
+            "ORDERFILTER": null,
+            "CZR": "06855",
+            "KSXZDM": "0",
+            "CJXSZ": "A-",
+            "KCMC": "学术英语",
+            "LRRXM": "王冬燕",
+            "FZJSXM": "王冬燕",
+            "XF": 2,
+            "FZJSGH": "06855",
+            "XNXQDM": "202409",
+            "DZ_SEU_GGHCJ": null,
+            "CZSJ": "2025-01-19 12:36:19",
+            "DYBFZCJ": 88,
+            "KKDWDM": "00000",
+            "DZ_SEU_XXXQ": null,
+            "SFJG": 1,
+            "BZSM": null,
+            "LRR": "06855",
+            "JDZ": 3.7,
+            "RZLBDM": null,
+            "SFYX": 1,
+            "BJDM": "202309-00000-FL6001-1713750492253",
+            "CJ": "003",
+            "KCLBDM": "11",
+            "KCLBMC": "公共基础课",
+            "LRSJ": "2025-01-12 17:29:07",
+            "BY7": null,
+            "CZRXM": "王冬燕",
+            "BY8": null,
+            "BY9": null,
+            "KCDM": "FL6001",
+            "BY10": null,
+            "TSZTDM": null
+          }
+        ],
+        "extParams": {
+          "logId": "9fc36539700e4c47a20caadc732ea524",
+          "code": 1,
+          "totalPage": 1
+        }
+      }
+    },
+    "code": "0"
+  }

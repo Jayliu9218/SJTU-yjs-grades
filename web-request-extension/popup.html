@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SJTU Grade Viewer</title>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --primary-color: #003f88;
+      --primary-light: #e6f0ff;
+      --secondary-color: #0077b6;
+      --text-color: #333;
+      --light-text: #666;
+      --border-radius: 12px;
+      --shadow: 0 4px 6px rgba(0,0,0,0.1);
+      --card-bg: #fff;
+      --hover-bg: #f5f8ff;
+      --divider: #eaeaea;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      width: 600px;
+      padding: 16px;
+      margin: 0;
+      background-color: #f8f9fa;
+      color: var(--text-color);
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--divider);
+    }
+    
+    h1 {
+      margin: 0;
+      color: var(--primary-color);
+      font-size: 22px;
+      font-weight: 600;
+    }
+    
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin: 16px 0 12px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--divider);
+    }
+    
+    .summary-card {
+      background-color: var(--card-bg);
+      padding: 16px;
+      border-radius: var(--border-radius);
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .summary-section {
+      text-align: center;
+      flex: 1;
+    }
+    
+    .summary-section:not(:last-child) {
+      border-right: 1px solid var(--divider);
+    }
+    
+    .summary-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 4px;
+    }
+    
+    .summary-label {
+      font-size: 14px;
+      color: var(--light-text);
+    }
+    
+    .semester-container {
+      margin-bottom: 24px;
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .semester-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px 16px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .semester-summary {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--card-bg);
+      font-size: 14px;
+    }
+    
+    th {
+      background-color: #f1f5f9;
+      color: var(--text-color);
+      text-align: left;
+      padding: 10px 12px;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    td {
+      padding: 12px;
+      border-top: 1px solid var(--divider);
+    }
+    
+    tr:hover {
+      background-color: var(--hover-bg);
+    }
+    
+    .course-name {
+      font-weight: 500;
+    }
+    
+    .teacher {
+      color: var(--light-text);
+      font-size: 13px;
+    }
+    
+    .grade-a {
+      color: #2e7d32;
+      font-weight: 600;
+    }
+    
+    .grade-b {
+      color: #1976d2;
+      font-weight: 600;
+    }
+    
+    .grade-c {
+      color: #ff9800;
+      font-weight: 600;
+    }
+    
+    .grade-d {
+      color: #e53935;
+      font-weight: 600;
+    }
+    
+    .score-pill {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 13px;
+      min-width: 36px;
+      text-align: center;
+    }
+    
+    .score-a {
+      background-color: rgba(46, 125, 50, 0.1);
+      color: #2e7d32;
+    }
+    
+    .score-b {
+      background-color: rgba(25, 118, 210, 0.1);
+      color: #1976d2;
+    }
+    
+    .score-c {
+      background-color: rgba(255, 152, 0, 0.1);
+      color: #ff9800;
+    }
+    
+    .score-d {
+      background-color: rgba(229, 57, 53, 0.1);
+      color: #e53935;
+    }
+    
+    .score-pending {
+      background-color: rgba(158, 158, 158, 0.1);
+      color: #757575;
+    }
+    
+    .grade-pending {
+      color: #757575;
+      font-style: italic;
+    }
+    
+    .no-data {
+      text-align: center;
+      padding: 40px;
+      color: var(--light-text);
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+    
+    .refresh-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .refresh-btn:hover {
+      background-color: var(--secondary-color);
+    }
+    
+    .clear-btn {
+      background-color: #f1f1f1;
+      color: #555;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    
+    .clear-btn:hover {
+      background-color: #e0e0e0;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: var(--light-text);
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+    
+    .loading:after {
+      content: "...";
+      animation: dots 1.5s steps(5, end) infinite;
+    }
+    
+    @keyframes dots {
+      0%, 20% { content: "."; }
+      40% { content: ".."; }
+      60%, 100% { content: "..."; }
+    }
+    
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 9999;
+      animation: slide-up 0.3s ease;
+    }
+    
+    .notification.fade-out {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-10px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    
+    @keyframes slide-up {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>SJTU Grade Viewer</h1>
+    <div class="button-group">
+      <button id="clearCacheBtn" class="clear-btn">Clear Cache</button>
+      <button id="refreshBtn" class="refresh-btn">Refresh Data</button>
+    </div>
+  </div>
+  
+  <div id="summaryContainer" class="summary-card" style="display: none;">
+    <div class="summary-section">
+      <div id="totalCredits" class="summary-value">0</div>
+      <div class="summary-label">Total Credits</div>
+    </div>
+    <div class="summary-section">
+      <div id="averageGPA" class="summary-value">0.00</div>
+      <div class="summary-label">GPA</div>
+    </div>
+    <div class="summary-section">
+      <div id="averageScore" class="summary-value">0.00</div>
+      <div class="summary-label">Average Score</div>
+    </div>
+  </div>
+  
+  <div id="content">
+    <div id="loading" class="loading">Loading grade data</div>
+    <div id="noData" class="no-data" style="display: none;">
+      No grade data found. Please visit the SJTU student system and check your grades first.
+    </div>
+    
+    <!-- Semester containers will be dynamically inserted here -->
+    <div id="semesterContainers"></div>
+  </div>
+  
+  <!-- Template for semester container -->
+  <template id="semesterTemplate">
+    <div class="semester-container">
+      <div class="semester-header">
+        <span class="semester-name"></span>
+        <span class="semester-summary"></span>
+      </div>
+      <table class="semester-table">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Credits</th>
+            <th>Score</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody class="semester-body">
+          <!-- Course rows will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </template>
+  
+  <!-- Template for course row -->
+  <template id="courseRowTemplate">
+    <tr class="course-row">
+      <td>
+        <div class="course-name"></div>
+        <div class="teacher"></div>
+      </td>
+      <td class="credits"></td>
+      <td class="score"></td>
+      <td class="grade"></td>
+    </tr>
+  </template>
+  
+  <script src="popup.js"></script>
+</body>
+</html> 

@@ -1,0 +1,417 @@
+{
+    "datas": {},
+    "searchMeta": {
+      "name": "xscjcx",
+      "modelName": "Cjxx.custom",
+      "appName": "wdcjapp",
+      "controls": [
+        {
+          "name": "XNXQDM",
+          "caption": "学年学期",
+          "dataType": "String",
+          "defaultBuilder": "m_value_equal",
+          "builderList": "cbl_m_List",
+          "quickSearch": true,
+          "url": "/gsapp/code/10ab161b-9cb1-4201-a405-b90033f91c68.do",
+          "search.xtype": "multi-select2",
+          "xtype": "select"
+        },
+        {
+          "name": "KCDM",
+          "caption": "课程代码",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "quickSearch": true,
+          "search.hidden": true
+        },
+        {
+          "name": "KCMC",
+          "caption": "课程名称",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "quickSearch": true,
+          "search.hidden": true
+        },
+        {
+          "name": "CJFZDM",
+          "caption": "成绩分制",
+          "dataType": "String",
+          "defaultBuilder": "m_value_equal",
+          "builderList": "cbl_m_List",
+          "url": "/gsapp/code/2527b125-9686-47c3-a7c7-52ef8f3784d0.do",
+          "search.xtype": "multi-select2",
+          "xtype": "select",
+          "grid.width": "110px"
+        },
+        {
+          "name": "KCLBMC",
+          "caption": "课程类别",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String"
+        },
+        {
+          "name": "XF",
+          "caption": "学分",
+          "dataType": "double",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_Other",
+          "grid.width": "80px",
+          "grid.fixed": true
+        },
+        {
+          "name": "KSXZDM",
+          "caption": "考试性质",
+          "dataType": "String",
+          "defaultBuilder": "m_value_equal",
+          "builderList": "cbl_m_List",
+          "url": "/gsapp/code/9520fe78-6169-4055-bf53-8e2603ae436a.do",
+          "search.xtype": "multi-select2",
+          "xtype": "select",
+          "grid.width": "100px"
+        },
+        {
+          "name": "CJXSZ",
+          "caption": "成绩",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "hidden": true
+        },
+        {
+          "name": "ZTDM",
+          "caption": "状态代码",
+          "dataType": "int",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_Other",
+          "grid.fixed": true,
+          "hidden": true
+        },
+        {
+          "name": "BXHJKCWID",
+          "caption": "必修环节课程WID",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "XH",
+          "caption": "学号",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "CZR",
+          "caption": "操作人",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "LRRXM",
+          "caption": "录入人姓名",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "FZJSXM",
+          "caption": "负责教师姓名",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "grid.fixed": true,
+          "hidden": true
+        },
+        {
+          "name": "FZJSGH",
+          "caption": "负责教师工号",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "grid.fixed": true,
+          "hidden": true
+        },
+        {
+          "name": "CZSJ",
+          "caption": "操作时间",
+          "dataType": "Timestamp",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_Other",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "DYBFZCJ",
+          "caption": "对应百分制成绩",
+          "dataType": "double",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_Other",
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "KKDWDM",
+          "caption": "开课单位代码",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "LRR",
+          "caption": "录入人",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "BZSM",
+          "caption": "备注说明",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "JDZ",
+          "caption": "绩点值",
+          "dataType": "double",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_Other",
+          "grid.fixed": true,
+          "hidden": true
+        },
+        {
+          "name": "SFYX",
+          "caption": "是否有效",
+          "dataType": "int",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_Other",
+          "grid.fixed": true,
+          "hidden": true
+        },
+        {
+          "name": "BJDM",
+          "caption": "班级代码",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "CJ",
+          "caption": "成绩",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "grid.fixed": true,
+          "hidden": true
+        },
+        {
+          "name": "SFJG",
+          "caption": "是否及格",
+          "dataType": "int",
+          "defaultBuilder": "m_value_equal",
+          "builderList": "cbl_m_List",
+          "url": "/gsapp/code/n-5467-4981-87a3-8ab806fec06c.do",
+          "search.xtype": "multi-select2",
+          "xtype": "select",
+          "grid.fixed": true,
+          "grid.width": "100px"
+        },
+        {
+          "name": "KCLBDM",
+          "caption": "课程类别代码",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "LRSJ",
+          "caption": "录入时间",
+          "dataType": "Timestamp",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_Other",
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "DQSFKFCX",
+          "caption": null,
+          "dataType": "int",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_Other",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "CZRXM",
+          "caption": "操作人姓名",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "KFCXRQ",
+          "caption": null,
+          "dataType": "Timestamp",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_Other",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true,
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "TSZTDM",
+          "caption": "特殊状态代码",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "search.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "WID",
+          "caption": "数据的唯一标识",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "RZLBDM",
+          "caption": "任职类别代码，有的接口需要作为数据权限过滤的依据",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        },
+        {
+          "name": "ORDERFILTER",
+          "caption": "接口被字典使用时需要使用这个字段传入排序方式，比如+PX,-WID等",
+          "dataType": "String",
+          "defaultBuilder": "equal",
+          "builderList": "cbl_String",
+          "search.hidden": true,
+          "grid.hidden": true,
+          "hidden": true
+        }
+      ],
+      "builderLists": {
+        "cbl_String": [
+          {
+            "name": "equal",
+            "caption": "等于"
+          },
+          {
+            "name": "include",
+            "caption": "包含"
+          },
+          {
+            "name": "notEqual",
+            "caption": "不等于"
+          },
+          {
+            "name": "notInclude",
+            "caption": "不包含"
+          },
+          {
+            "name": "beginWith",
+            "caption": "以..开始"
+          },
+          {
+            "name": "endWith",
+            "caption": "以..结束"
+          },
+          {
+            "name": "m_value_include",
+            "caption": "多值包含"
+          },
+          {
+            "name": "m_value_equal",
+            "caption": "多值相等"
+          },
+          {
+            "name": "m_value_not_include",
+            "caption": "多值不包含"
+          },
+          {
+            "name": "m_value_not_equal",
+            "caption": "多值不相等"
+          }
+        ],
+        "cbl_m_List": [
+          {
+            "name": "m_value_equal",
+            "caption": "相等"
+          },
+          {
+            "name": "m_value_not_equal",
+            "caption": "不相等"
+          }
+        ],
+        "cbl_Other": [
+          {
+            "name": "equal",
+            "caption": "等于"
+          },
+          {
+            "name": "notEqual",
+            "caption": "不等于"
+          },
+          {
+            "name": "more",
+            "caption": "大于"
+          },
+          {
+            "name": "less",
+            "caption": "小于"
+          },
+          {
+            "name": "moreEqual",
+            "caption": "大于等于"
+          },
+          {
+            "name": "lessEqual",
+            "caption": "小于等于"
+          }
+        ]
+      }
+    },
+    "code": "0"
+  }
