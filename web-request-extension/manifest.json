@@ -9,14 +9,14 @@
     "action"
   ],
   "host_permissions": [
-    "*://*.sjtu.edu.cn/*"
+    "https://yjs.sjtu.edu.cn/*"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["*://*.sjtu.edu.cn/*"],
+      "matches": ["https://yjs.sjtu.edu.cn/*"],
       "js": ["content.js"]
     }
   ],

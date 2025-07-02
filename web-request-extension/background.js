@@ -48,7 +48,7 @@ chrome.webRequest.onCompleted.addListener(
       });
     }
   },
-  { urls: ["*://*.sjtu.edu.cn/*/xscjcx.do*"] }
+  { urls: ["https://yjs.sjtu.edu.cn/*/xscjcx.do*"] }
 );
 
 // Listen for messages from the popup and content script

@@ -8,8 +8,8 @@
   
   // Override the open method
   XMLHttpRequest.prototype.open = function(method, url) {
-    // Check if this is a grade request
-    if (url.includes('xscjcx.do')) {
+    // Check if this is a grade request on yjs.sjtu.edu.cn
+    if (url.includes('xscjcx.do') && (url.includes('yjs.sjtu.edu.cn') || url.startsWith('/'))) {
       // Add a load event listener to capture the response
       this.addEventListener('load', function() {
         try {
@@ -100,8 +100,8 @@ function addExtensionIndicator() {
 
 // Wait for page to load before adding indicator
 window.addEventListener('load', () => {
-  // Only add indicator on relevant pages
-  if (window.location.href.includes('sjtu.edu.cn')) {
+  // Only add indicator on yjs.sjtu.edu.cn pages
+  if (window.location.hostname === 'yjs.sjtu.edu.cn') {
     setTimeout(addExtensionIndicator, 1000);
   }
 }); 

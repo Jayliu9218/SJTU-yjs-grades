@@ -1,133 +1,123 @@
-# SJTU Grade Viewer Extension
+# SJTU 成绩查看器扩展
 
-This browser extension captures and displays grade information from the SJTU student system, providing a clean and modern interface for viewing your academic records.
+一个简洁现代的浏览器扩展，专门用于捕获和显示上海交通大学研究生系统（https://yjs.sjtu.edu.cn/）的成绩信息。
+
+## 功能特性
+
+- 🎯 **自动捕获**：访问研究生系统时自动获取成绩数据
+- 📊 **数据统计**：按学期组织，显示学分、绩点、平均分等统计信息
+- 🎨 **现代界面**：响应式设计，颜色编码的成绩等级
+- 📱 **便捷操作**：一键刷新数据，清除缓存功能
+- 🔒 **隐私保护**：数据仅本地存储，不上传至外部服务器
+
+## 快速开始
+
+### 安装
+
+1. 下载或克隆此仓库
+2. 打开浏览器扩展页面：
+   - Chrome: `chrome://extensions/`
+   - Edge: `edge://extensions/`
+3. 启用"开发者模式"
+4. 点击"加载已解压的扩展程序"，选择 `web-request-extension` 文件夹
+
+### 使用
+
+1. 访问[上海交通大学研究生系统](https://yjs.sjtu.edu.cn)
+2. 导航至"培养-我的成绩"页面
+3. 点击浏览器工具栏中的扩展图标查看成绩
+4. 使用"刷新数据"按钮更新信息
+
+## 数据展示
+
+- **学期组织**：按学期分组，最新学期优先显示
+- **统计信息**：每学期显示总学分、平均绩点、平均分数
+- **课程详情**：课程名称、教师、学分、分数、绩点、等级
+- **状态标识**：已完成课程和待处理课程分别标记
+
+## 技术原理
+
+- 使用 `webRequest` API 监控网络请求
+- 从 `xscjcx.do` 端点捕获 JSON 数据
+- 本地解析和存储，支持离线访问
+
+## 隐私说明
+
+- 仅捕获上海交通大学研究生系统（yjs.sjtu.edu.cn）的成绩数据
+- 数据完全本地存储，不上传至任何外部服务器
+- 仅对研究生系统域名有访问权限
+
+## 开发说明
+
+### 文件结构
+- `manifest.json`：扩展配置
+- `background.js`：后台脚本，捕获网络请求
+- `content.js`：内容脚本，在 SJTU 页面运行
+- `popup.html` & `popup.js`：用户界面
+
+### 修改扩展
+1. 编辑源文件
+2. 在浏览器中重新加载扩展以测试更改
 
 ---
 
-# SJTU 成绩查看器扩展
+# SJTU Grade Viewer Extension
 
-这个浏览器扩展可以捕获并显示上海交通大学学生系统中的成绩信息，为您提供查看学术记录的简洁现代界面。
+A clean and modern browser extension specifically designed for capturing and displaying grade information from Shanghai Jiao Tong University's graduate student system (https://yjs.sjtu.edu.cn/).
 
-## Features / 功能特性
+## Features
 
-- Automatically captures grade data when you visit the SJTU student system
-- Modern, clean UI with responsive design
-- Organizes courses by semester with semester-specific statistics
-- Shows course name, teacher, credits, score, GPA, and grade level
-- Displays both completed courses and pending courses without grades
-- Calculates and displays overall summary statistics (total credits, average GPA, average score)
-- Color-coded grade levels and score pills for easy visualization
-- Notification badge when new grade data is captured
-- Cache management with clear cache functionality
+- 🎯 **Auto Capture**: Automatically retrieves grade data when visiting the graduate system
+- 📊 **Data Analytics**: Organizes by semester with credit, GPA, and average score statistics
+- 🎨 **Modern UI**: Responsive design with color-coded grade levels
+- 📱 **Easy Operation**: One-click data refresh and cache clearing
+- 🔒 **Privacy First**: Data stored locally only, never uploaded to external servers
 
-- 访问上海交通大学学生系统时自动捕获成绩数据
-- 现代化、简洁的响应式设计界面
-- 按学期组织课程，显示学期特定统计信息
-- 显示课程名称、教师、学分、分数、绩点和等级
-- 显示已完成课程和尚未出成绩的待处理课程
-- 计算并显示总体统计摘要（总学分、平均绩点、平均分数）
-- 颜色编码的成绩等级和分数标签，便于可视化
-- 捕获新成绩数据时显示通知徽章
-- 缓存管理，包含清除缓存功能
+## Quick Start
 
-## Installation / 安装
-
-### Chrome / Edge / Other Chromium-based browsers
+### Installation
 
 1. Download or clone this repository
-2. Open your browser and navigate to the extensions page:
+2. Open browser extensions page:
    - Chrome: `chrome://extensions/`
    - Edge: `edge://extensions/`
-3. Enable "Developer mode" using the toggle in the top-right corner
+3. Enable "Developer mode"
 4. Click "Load unpacked" and select the `web-request-extension` folder
-5. The extension should now be installed and visible in your browser toolbar
 
-### Chrome / Edge / 其他基于 Chromium 的浏览器
+### Usage
 
-1. 下载或克隆此仓库
-2. 打开浏览器并导航到扩展页面：
-   - Chrome: `chrome://extensions/`
-   - Edge: `edge://extensions/`
-3. 使用右上角的开关启用"开发者模式"
-4. 点击"加载已解压的扩展程序"并选择 `web-request-extension` 文件夹
-5. 扩展程序现在应该已安装并显示在浏览器工具栏中
+1. Visit [SJTU Graduate System](https://yjs.sjtu.edu.cn)
+2. Navigate to "Training - My Grades" page
+3. Click the extension icon in browser toolbar to view grades
+4. Use "Refresh Data" button to update information
 
-## Usage / 使用方法
+## Data Display
 
-1. Visit the SJTU student system and navigate to the grades page
-2. The extension will automatically capture the grade data when the page loads
-3. Click on the extension icon in the browser toolbar to view your grades
-4. Use the "Refresh Data" button to update the data if needed
-5. Use the "Clear Cache" button to remove stored data if you want to start fresh
+- **Semester Organization**: Grouped by semester with newest first
+- **Statistics**: Total credits, average GPA, and average score per semester
+- **Course Details**: Course name, teacher, credits, score, GPA, and grade level
+- **Status Indicators**: Completed courses and pending courses clearly marked
 
-1. 访问上海交通大学研究生学生系统(yjs.sjtu.edu.cn)并导航到"培养-我的成绩"页面
-2. 页面加载时扩展程序将自动捕获成绩数据
-3. 点击浏览器工具栏中的扩展程序图标查看您的成绩
-4. 如需更新数据，请使用"刷新数据"按钮
-5. 如需重新开始，请使用"清除缓存"按钮删除存储的数据
+## Technical Details
 
-## Data Organization / 数据组织
+- Uses `webRequest` API to monitor network requests
+- Captures JSON data from `xscjcx.do` endpoint
+- Local parsing and storage for offline access
 
-- Grades are organized by semester, with the newest semesters shown first
-- Each semester shows:
-  - Semester name (e.g., "2023 Fall")
-  - Total credits earned in that semester
-  - Average GPA for that semester
-  - Average score for that semester
-  - Number of pending courses (if any)
-- Courses without grades are marked as "Pending"
-- Overall summary statistics are shown at the top of the page
+## Privacy
 
-- 成绩按学期组织，最新的学期显示在前面
-- 每个学期显示：
-  - 学期名称（例如："2023 秋季"）
-  - 该学期获得的总学分
-  - 该学期的平均绩点
-  - 该学期的平均分数
-  - 待处理课程数量（如有）
-- 尚未出成绩的课程标记为"待处理"
-- 总体统计摘要显示在页面顶部
+- Only captures grade data from SJTU graduate system (yjs.sjtu.edu.cn)
+- Data stored locally, never uploaded to external servers
+- Permissions limited to graduate system domain only
 
-## Technical Details / 技术细节
+## Development
 
-This extension works by:
-1. Monitoring network requests using the `webRequest` API
-2. Capturing JSON data from the `xscjcx.do` endpoint
-3. Parsing and displaying the data in a user-friendly format
-4. Storing the data locally in your browser for offline access
+### File Structure
+- `manifest.json`: Extension configuration
+- `background.js`: Background script for capturing network requests
+- `content.js`: Content script running on SJTU pages
+- `popup.html` & `popup.js`: User interface
 
-此扩展程序的工作原理：
-1. 使用 `webRequest` API 监控网络请求
-2. 从 `xscjcx.do` 端点捕获 JSON 数据
-3. 解析并以用户友好的格式显示数据
-4. 将数据本地存储在浏览器中以便离线访问
-
-## Privacy / 隐私
-
-This extension:
-- Only captures grade data from the SJTU student system
-- Stores data locally in your browser
-- Does not send any data to external servers
-- Only has permissions for SJTU domains
-
-此扩展程序：
-- 仅捕获上海交通大学学生系统中的成绩数据
-- 将数据本地存储在您的浏览器中
-- 不会向外部服务器发送任何数据
-- 仅对上海交通大学域名有权限
-
-## Development / 开发
-
-To modify this extension:
-1. Edit the source files as needed
-2. Reload the extension in your browser to test changes
-
-修改此扩展程序：
-1. 根据需要编辑源文件
-2. 在浏览器中重新加载扩展程序以测试更改
-
-### Files / 文件
-- `manifest.json`: Extension configuration / 扩展程序配置
-- `background.js`: Background script for capturing network requests / 用于捕获网络请求的后台脚本
-- `content.js`: Content script that runs on SJTU pages / 在上海交通大学页面上运行的内容脚本
-- `popup.html` & `popup.js`: UI for displaying grade data / 用于显示成绩数据的用户界面 
+### Modifying the Extension
+1. Edit source files as needed
+2. Reload extension in browser to test changes 
