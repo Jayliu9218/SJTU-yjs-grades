@@ -60,7 +60,7 @@ This browser extension captures and displays grade information from the SJTU stu
 4. Use the "Refresh Data" button to update the data if needed
 5. Use the "Clear Cache" button to remove stored data if you want to start fresh
 
-1. 访问上海交通大学学生系统并导航到成绩页面
+1. 访问上海交通大学研究生学生系统(yjs.sjtu.edu.cn)并导航到"培养-我的成绩"页面
 2. 页面加载时扩展程序将自动捕获成绩数据
 3. 点击浏览器工具栏中的扩展程序图标查看您的成绩
 4. 如需更新数据，请使用"刷新数据"按钮
